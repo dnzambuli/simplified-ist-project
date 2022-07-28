@@ -30,5 +30,30 @@ def add_assignment(a, b):
     else:
         return 0
     
+def more_assignments(a, b):
+    '''
+    more_assignments takes new assignments a and
+    new due date b and adds them to a csv file 
+
+    input: assignment, due date
+    output: none
+
+    return: 0 or Error
+    '''
+    # the currently saved data
+    curr_assignments = pd.read_csv(db)
+
+    # the new assignments to be added 
+    new_assignments = pd.dataframe({'assignments': a.title(), 'due date': b})
+
+    # adding the new assignment to the existing ones
+    try:
+        curr_assignments.append(new_assignments, ignore_index=0)
+    except:
+        raise Exception("invalid input")
+    else:
+        return 0
+
+
 
     
