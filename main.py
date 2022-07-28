@@ -55,5 +55,21 @@ def more_assignments(a, b):
         return 0
 
 
+def delete_assignment(a):
+    '''
+    delete_assignments takes the assignment name and deletes it from the database
 
+    return 0
+    '''
+    # store the dataset to be deleted from
+    data_to_delete = pd.read_csv(db, index_col = 'assignments')
+
+    # catch when the name doesn't exist
+    try:
+        assignment = a.title()
+        data_to_delete.drop(assignment, inplace=True)
+    except:
+        raise Exception("\n\tNo Such Data\n\t")
+    else:
+        return 0
     
