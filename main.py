@@ -16,7 +16,7 @@ def add_assignment(a, b):
     due date b and adds them to a csv file 
 
     input: assignment, due date
-    output: 0 pass, 1 Fail
+    output: 0
 
     return: int
     '''
@@ -25,22 +25,10 @@ def add_assignment(a, b):
 
     try:
         df.to_csv(db)
-        return 0
     except:
-        print("invalid process adding new assignment")
-        return 1
+        raise Exception("invalid process adding new assignment")
+    else:
+        return 0
     
-def more_assignments(a, b):
-    '''
-    add more assignments a 
-    due date b and adds them to a csv file 
 
-    input: assignment, due date
-    output: 0 pass, 1 Fail
-
-    return: int
-    '''
-    # the currently saved data
-    
-    new_assignments = pd.dataframe({'assignments': a, 'due date': b})
     
